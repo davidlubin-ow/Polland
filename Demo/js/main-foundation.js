@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
     "submitImmediately": false,
     "onload": function() { console.log("onload called"); },
     "callback": function() { console.log("callback called"); },
-    "preset": "bootstrap"
+    "preset": "foundation"
   };
   
   var form = new FormBuilder("#main", options);

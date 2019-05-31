@@ -1,6 +1,7 @@
 class FormBuilder{
-  constructor(el, options){
-    if(!el || !document.querySelector(el)){
+  constructor(selector, options){
+    this.el = document.querySelector(selector);
+    if(!selector || !this.el){
       console.error("FormBuilder Error: Either no selector was provided, or the selector is invalid");
       return;
     }
@@ -21,15 +22,100 @@ class FormBuilder{
     this.onload = options.onload || (() => {});
     this.callback = options.callback || (() => {});
     this.preset = options.preset || undefined;
-    let rawQuestionData = options.questions || {};
-    
-
-    this.onload();
+    this.questions = options.questions || [];
+    this.load();
   }
 
-  submit(){
-
+  submit(answers){
 
     this.callback();
+  }
+
+  load(){
+    if(this.el.tagName.toUpperCase() != "FORM"){
+      let newForm = document.createElement("form");
+      this.el.appendChild(newForm);
+      this.el = newForm;
+    }
+    for(var i = 0; i < this.questions.length; i++){
+      let question = this.questions[i];
+      let answers = question.answers || [];
+      let qID = question.id || question.question || `q${i}`;
+      let outer = document.createElement("div")
+      outer.classList.add("formBuilder-question");
+      if(question.cssClasses && question.cssClasses.length > 0){
+        outer.classList.add(...question.cssClasses);
+      }
+      if(this.preset == "foundation"){
+        outer.classList.add("small-12");
+      }else if(this.preset == "bootstrap"){
+        outer.classList.add("form-group");
+      }
+      switch(question.type){
+        case "dropdown":
+          let label = document.createElement("label");
+          label.setAttribute("for", qID);
+          let labelText = document.createTextNode(question.question);
+          label.appendChild(labelText);
+          let select = document.createElement("select");
+          if(this.preset == "bootstrap"){
+            select.classList.add("form-control");
+          }
+          select.id = qID;
+          for(var k = 0; k < answers.length; k++){
+            let answer = answers[k];
+            let option = document.createElement("option");
+            option.setAttribute("value", answer.value || answer.text);
+            let optionText = document.createTextNode(answer.text);
+            option.append(optionText);
+            select.append(option);
+          }
+          outer.appendChild(label);
+          outer.append(select);
+          break;
+        case "radioButtons":
+          let fieldset = document.createElement("fieldset");
+          let legend = document.createElement("legend");
+          if(this.preset == "bootstrap"){
+            fieldset.classList.add("border", "p-2");
+            legend.classList.add("w-auto");
+          }
+          let legendText = document.createTextNode(question.question);
+          legend.appendChild(legendText);
+          fieldset.appendChild(legend);
+          for(var k = 0; k < answers.length; k++){
+            let answer = answers[k];
+            let parent = fieldset;
+            let inputClasses = [];
+            let labelClasses = [];
+            if(this.preset == "bootstrap"){
+              let wrapper = document.createElement("div");
+              wrapper.classList.add("form-check", "form-check-inline");
+              fieldset.appendChild(wrapper);
+              parent = wrapper;
+              inputClasses.push("form-check-input");
+              labelClasses.push("form-check-label");
+            }
+            let input = document.createElement("input");
+            let label = document.createElement("label");
+            if(inputClasses.length > 0) input.classList.add(inputClasses);
+            if(labelClasses.length > 0) label.classList.add(labelClasses);
+            input.setAttribute("type", "radio");
+            input.setAttribute("name", qID);
+            input.setAttribute("value", answer.value || answer.text);
+            let answerID = answer.value || answer.text.replace(/[^\w\s]/gi, '-');
+            input.id = answerID;
+            label.setAttribute("for", answerID);
+            let labelText = document.createTextNode(answer.text);
+            label.appendChild(labelText);
+            parent.appendChild(input);
+            parent.appendChild(label);
+          }
+          outer.appendChild(fieldset);
+          break;
+      }
+      this.el.appendChild(outer);
+    }
+    this.onload();
   }
 }
