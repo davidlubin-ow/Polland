@@ -14,8 +14,7 @@ var form = new FormBuilder(element, options)
 | Option  | Description | Default Value |
 | --- | --- | --- |
 | title | (Optional) An identifying title that will be submitted along with the response data |
-| questionSource | A path to a json file/endpoint containing question and answer format (see question syntax below). If the file is invalid, the question option will be used instead | undefined |
-| questions  | Expects a json object containing question and answer format (see question syntax below). Will not be used if a valid json file is provided to the questionSource option | {} |
+| questions  | Expects a json object containing question and answer format (see question syntax below). | {} |
 | database | The endpoint to which submitted data will be sent in json format (see submission json format for details) | undefined |
 | formType | The form can be either a standard form ("form") or a poll ("poll"). The difference between the two is outlined in the Polls section | "form" |
 | displayResults | (Only available for polls) If true, the totals of all multiple choice questions will be displayed when the poll is submitted | false |
@@ -38,10 +37,11 @@ When building the form, the following syntax must be used, either in the questio
 ```
 [
   {
-    type: "multipleChoice|radioButtons|shortText|longText|checkbox",
+    type: "dropdown|radioButtons|shortText|longText|checkbox|label",
     id: "Optional question ID that will be submitted along with response data"
     question: "Question text",
-    answers (not used for text fields): [
+    required: true if question is required to submit responses
+    answers (not used for text fields or labels): [
       {
         text: "Answer text",
         value: "Answer value (optional)"

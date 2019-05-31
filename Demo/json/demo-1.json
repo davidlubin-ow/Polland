@@ -1,0 +1,42 @@
+[
+  {
+    "type": "multipleChoice",
+    "id": "q1",
+    "question": "How is your day going?",
+    "cssClasses": [
+      "question1", 
+      "q1Styles"
+    ],
+    "answers": [
+      {
+        "text": "Great!",
+        "value": "3"
+      },
+      {
+        "text": "Good",
+        "value": "2"
+      },
+      {
+        "text": "Ok",
+        "value": 1
+      },
+      {
+        "text": "Bad",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "type": "radioButtons",
+    "id": "q2",
+    "question": "iPhone or Android?",
+    "answers":[
+      {
+        "text": "iPhone"
+      },
+      {
+        "text": "Android"
+      }
+    ]
+  }
+]
