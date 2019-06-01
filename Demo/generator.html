@@ -1,45 +1,49 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<script
-    src="https://code.jquery.com/jquery-3.4.0.min.js"
-    integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
-    crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"
+    integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
 
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand">SurveyGenerator</a>
-         </nav>
-         <p>&nbsp;</p>
-         <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-12">
-                <p>&nbsp;</p>
-                    <ul class="list-group list-group-flush">
-                            <li class="list-group-item" id="btn1">Email</li>
-                            <li class="list-group-item" id="btn2">Single Line Text</li>
-                            <li class="list-group-item" id="btn3">Textarea</li>
-                            <li class="list-group-item" id="btn4">Number</li>
-                            <li class="list-group-item" id="btn5">Multile Choice</li>
-                            <li class="list-group-item" id="btn6">Checkbox</li>
-                            <li class="list-group-item" id="btn7">File</li>
-                    </ul>
-                    <br>
-                    <button type="button" style="float:right;" class="btn btn-secondary">Generate Form</button>
-            </div>
-            <div class="col-lg-8 col-md-8 bg-light col-sm-12 bg-light">
-                    <p>&nbsp;</p>
-                    <h3 id="title" style="font-weight:bold">&nbsp;</h3>
-                 <form id="forms">
-                    <input type="text" id="titleField" placeholder="Title of the form" class="form-control">
-                    <p>&nbsp;</p>
-              </form>
-           
-          </div>
-          <div class="col-lg-1 col-md-1 col-sm-0"></div>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">SurveyGenerator</a>
+    </nav>
+    <p>&nbsp;</p>
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-12">
+            <p>&nbsp;</p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="addShortText">Short Text</li>
+                <li class="list-group-item" id="addLongText">Long Text</li>
+                <li class="list-group-item" id="addDropdown">Multiple Choice</li>
+                <li class="list-group-item" id="addCheckbox">Checkbox</li>
+            </ul>
+            <br>
+            <button id="generate" type="button" style="float:right;" class="btn btn-secondary">Generate Form</button>
         </div>
+        <div class="col-lg-8 col-md-8 bg-light col-sm-12 bg-light">
+            <p>&nbsp;</p>
+            <h3 id="title" style="font-weight:bold">&nbsp;</h3>
+            <form id="form-sample">
+                <input type="text" id="titleField" placeholder="Title of the form" class="form-control">
+                <p>&nbsp;</p>
+            </form>
+
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-0"></div>
     </div>
+    <hr>
+    <div id="output"></div>
+</div>
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 <script src="./js/generator.js"></script>
