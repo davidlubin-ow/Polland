@@ -92,11 +92,11 @@
         
           var label_name = prompt('Please enter a label name', '');
             
-             if (label_name != null) {
-                var multipleChoiceItem = document.createElement('option');
-                var multipleItemName = document.createTextNode(label_name);
-                multipleChoiceItem.appendChild(multipleItemName);
-             }
+                if (label_name != null) {
+                    var multipleChoiceItem = document.createElement('option');
+                    var multipleItemName = document.createTextNode(label_name);
+                    multipleChoiceItem.appendChild(multipleItemName);
+                }
         
           $('#exampleFormControlSelect2').appendChild(multipleChoiceItem);
           
