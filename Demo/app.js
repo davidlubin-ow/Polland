@@ -37,5 +37,6 @@ express.static(path.join(__dirname))
 app.use('/js', express.static('js'))
 app.use('/json', express.static('json'))
 app.use('/src', express.static('../src'))
+app.use('/static', express.static('static'))
 
 app.listen(port, () => console.log(`Polland Demo app listening on port ${port}`))
