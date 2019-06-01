@@ -154,10 +154,32 @@ class FormBuilder{
           outer.appendChild(fieldset);
           break;
         case "shortText":
-          
+          var label = document.createElement("label");
+          label.setAttribute("for", qID);
+          var labelText = document.createTextNode(question.question);
+          label.appendChild(labelText);
+          var textfield = document.createElement("input");
+          if(this.preset == "bootstrap"){
+            textfield.classList.add("form-control");
+          }
+          textfield.id = qID;
+          textfield.setAttribute("type", "text");
+          outer.appendChild(label);
+          outer.appendChild(textfield);
           break;
         case "longText":
-
+          var label = document.createElement("label");
+          label.setAttribute("for", qID);
+          var labelText = document.createTextNode(question.question);
+          label.appendChild(labelText);
+          var textarea = document.createElement("textarea");
+          if(this.preset == "bootstrap"){
+            textarea.classList.add("form-control");
+          }
+          textarea.id = qID;
+          textarea.setAttribute("rows", 3);
+          outer.appendChild(label);
+          outer.appendChild(textarea);
           break;
         case "label":
           var label = document.createElement("label");

@@ -44,6 +44,10 @@ document.addEventListener("DOMContentLoaded", function() {
     {
       "type": "label",
       "question": "This is a label with text. That's all"
+    },
+    {
+      "type": "shortText",
+      "question": "Type a short response here."
     }
   ]
 
