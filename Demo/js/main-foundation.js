@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
       ]
     },
     {
-      "type": "radioButtons",
+      "type": "checkbox",
       "id": "q2",
       "question": "iPhone or Android?",
       "answers":[
@@ -40,6 +40,14 @@ document.addEventListener("DOMContentLoaded", function() {
           "text": "Android"
         }
       ]
+    },
+    {
+      "type": "label",
+      "question": "This is a label with text. That's all"
+    },
+    {
+      "type": "shortText",
+      "question": "Type a short response here."
     }
   ]
 
