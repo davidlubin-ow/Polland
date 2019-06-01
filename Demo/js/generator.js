@@ -11,7 +11,7 @@
     // first level - sidebar
 
     $( '#btn1' ).click(function() {
-      $('form').append('<div class="form-group"><label for="exampleInputEmail1">Email address</label><input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"><small id="emailHelp" class="form-text text-muted">We will never share your email with anyone else.</small></div>');
+      $('form').append('<div class="form-group"><label for="exampleInputEmail1">Email address</label><input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"><small id="emailHelp" class="form-text text-muted">We will never share your email with anyone else.</small></div><hr>');
     });
 
     $( '#btn2' ).click(function() {
@@ -99,7 +99,7 @@
                     multipleChoiceItem.appendChild(multipleItemName);
                  }
      
-                 $('#exampleFormControlSelect1').appendChild(multipleChoiceItem);
+                 $('#exampleFormControlSelect1').appendChild(multipleChoiceItem).append('<br>');
 
      });
 
