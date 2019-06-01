@@ -12,6 +12,7 @@ class FormBuilder{
     this.title = options.title || undefined;
     this.database = options.database || undefined;
     this.formType = options.formType || "form";
+    this.hideSubmit = options.hideSubmit || false;
     if(this.formType == "poll"){
       this.displayResults = options.displayResults || false;
       if(this.displayResults){
@@ -19,6 +20,7 @@ class FormBuilder{
       }
     }
     this.submitImmediately = options.submitImmediately || false;
+    if(this.submitImmediately) this.hideSubmit = true;
     this.onload = options.onload || (() => {});
     this.callback = options.callback || (() => {});
     this.preset = options.preset || undefined;

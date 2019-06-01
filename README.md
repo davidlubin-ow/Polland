@@ -1,6 +1,8 @@
 # Form-Builder
 Hackathon 2019 Project. Builds responsive forms and polls with ease
 
+Lightweight, blazing fast, and highly customizable!
+
 ## How to Run the Demo Site
 Prerequisites - both are typically preinstalled in windows 10 machines
 
@@ -35,6 +37,7 @@ var form = new FormBuilder(element, options)
 | displayResults | (Only available for polls) If true, the totals of all multiple choice questions will be displayed when the poll is submitted | false |
 | resultsSource | (Required if displayResults is true) resultsSource must be populated with an endpoint or file containing a json array of form responses in submission format syntax | undefined |
 | submitImmediately | If true, the form will submit as soon as all questions contain an answer. Otherwise, the form will wait for the completion signal from a submit button or javascript call | false |
+| hideSubmit | If true, no submit button will be rendered. The form can still be submitted via javascript call. If submitImmediately is true, hideSubmit will automatically be true as well | false |
 | onload | A javascript function to be called when the form finished loading | undefined |
 | callback | A javascript function to be called upon submission of the form | undefined |
 | preset | Can be set to "bootstrap" or "foundation". Automatically applies classnames to style the form for the bootstrap or foundation library | undefined |
