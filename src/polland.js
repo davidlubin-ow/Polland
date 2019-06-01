@@ -194,6 +194,19 @@ class Polland{
       }
       this.el.appendChild(outer);
     }
+    if(!this.hideSubmit){
+      let submitButton = document.createElement("button");
+      submitButton.setAttribute("type", "submit");
+      submitButton.classList.add("polland-submit");
+      if(this.preset == "bootstrap"){
+        submitButton.classList.add("btn", "btn-primary");
+      }else if(this.preset == "foundation"){
+        submitButton.classList.add("button");
+      }
+      let submitText = document.createTextNode("Submit");
+      submitButton.appendChild(submitText);
+      this.el.appendChild(submitButton);
+    }
     this.onload();
   }
 }
