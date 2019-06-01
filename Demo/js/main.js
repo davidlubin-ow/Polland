@@ -40,6 +40,10 @@ document.addEventListener("DOMContentLoaded", function() {
           "text": "Android"
         }
       ]
+    },
+    {
+      "type": "label",
+      "question": "This is a label with text. That's all"
     }
   ]
 

@@ -153,6 +153,18 @@ class FormBuilder{
           }
           outer.appendChild(fieldset);
           break;
+        case "shortText":
+          
+          break;
+        case "longText":
+
+          break;
+        case "label":
+          var label = document.createElement("label");
+          var labelText = document.createTextNode(question.question);
+          label.appendChild(labelText);
+          outer.appendChild(label);
+          break;
         default:
           console.error(`FormBuilder Error: Unable to render question ${qID} due to unrecognized question type. Allowed question types are dropdown, radioButtons, checkbox, shortText, longText, label`);
       }
