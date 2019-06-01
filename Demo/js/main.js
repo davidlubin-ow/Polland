@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
       ]
     },
     {
-      "type": "radioButtons",
+      "type": "checkbox",
       "id": "q2",
       "question": "iPhone or Android?",
       "answers":[

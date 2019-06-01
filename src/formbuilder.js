@@ -53,11 +53,11 @@ class FormBuilder{
       }
       switch(question.type){
         case "dropdown":
-          let label = document.createElement("label");
+          var label = document.createElement("label");
           label.setAttribute("for", qID);
-          let labelText = document.createTextNode(question.question);
+          var labelText = document.createTextNode(question.question);
           label.appendChild(labelText);
-          let select = document.createElement("select");
+          var select = document.createElement("select");
           if(this.preset == "bootstrap"){
             select.classList.add("form-control");
           }
@@ -74,13 +74,13 @@ class FormBuilder{
           outer.append(select);
           break;
         case "radioButtons":
-          let fieldset = document.createElement("fieldset");
-          let legend = document.createElement("legend");
+          var fieldset = document.createElement("fieldset");
+          var legend = document.createElement("legend");
           if(this.preset == "bootstrap"){
             fieldset.classList.add("border", "p-2");
             legend.classList.add("w-auto");
           }
-          let legendText = document.createTextNode(question.question);
+          var legendText = document.createTextNode(question.question);
           legend.appendChild(legendText);
           fieldset.appendChild(legend);
           for(var k = 0; k < answers.length; k++){
@@ -113,6 +113,48 @@ class FormBuilder{
           }
           outer.appendChild(fieldset);
           break;
+        case "checkbox":
+          var fieldset = document.createElement("fieldset");
+          var legend = document.createElement("legend");
+          if(this.preset == "bootstrap"){
+            fieldset.classList.add("border", "p-2");
+            legend.classList.add("w-auto");
+          }
+          var legendText = document.createTextNode(question.question);
+          legend.appendChild(legendText);
+          fieldset.appendChild(legend);
+          for(var k = 0; k < answers.length; k++){
+            let answer = answers[k];
+            let parent = fieldset;
+            let inputClasses = [];
+            let labelClasses = [];
+            if(this.preset == "bootstrap"){
+              let wrapper = document.createElement("div");
+              wrapper.classList.add("form-check", "form-check-inline");
+              fieldset.appendChild(wrapper);
+              parent = wrapper;
+              inputClasses.push("form-check-input");
+              labelClasses.push("form-check-label");
+            }
+            let input = document.createElement("input");
+            let label = document.createElement("label");
+            if(inputClasses.length > 0) input.classList.add(inputClasses);
+            if(labelClasses.length > 0) label.classList.add(labelClasses);
+            input.setAttribute("type", "checkbox");
+            input.setAttribute("name", qID);
+            input.setAttribute("value", answer.value || answer.text);
+            let answerID = answer.value || answer.text.replace(/[^\w\s]/gi, '-');
+            input.id = answerID;
+            label.setAttribute("for", answerID);
+            let labelText = document.createTextNode(answer.text);
+            label.appendChild(labelText);
+            parent.appendChild(input);
+            parent.appendChild(label);
+          }
+          outer.appendChild(fieldset);
+          break;
+        default:
+          console.error(`FormBuilder Error: Unable to render question ${qID} due to unrecognized question type. Allowed question types are dropdown, radioButtons, checkbox, shortText, longText, label`);
       }
       this.el.appendChild(outer);
     }

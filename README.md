@@ -13,7 +13,7 @@ var form = new FormBuilder(element, options)
 
 | Option  | Description | Default Value |
 | --- | --- | --- |
-| title | (Optional) An identifying title that will be submitted along with the response data |
+| title | (Optional) An identifying title that will be submitted along with the response data | undefined |
 | questions  | Expects a json object containing question and answer format (see question syntax below). | {} |
 | database | The endpoint to which submitted data will be sent in json format (see submission json format for details) | undefined |
 | formType | The form can be either a standard form ("form") or a poll ("poll"). The difference between the two is outlined in the Polls section | "form" |
