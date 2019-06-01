@@ -1,8 +1,8 @@
-class FormBuilder{
+class Polland{
   constructor(selector, options){
     this.el = document.querySelector(selector);
     if(!selector || !this.el){
-      console.error("FormBuilder Error: Either no selector was provided, or the selector is invalid");
+      console.error("Polland Error: Either no selector was provided, or the selector is invalid");
       return;
     }
     if(!options){
@@ -44,7 +44,7 @@ class FormBuilder{
       let answers = question.answers || [];
       let qID = question.id || question.question || `q${i}`;
       let outer = document.createElement("div")
-      outer.classList.add("formBuilder-question");
+      outer.classList.add("polland-question");
       if(question.cssClasses && question.cssClasses.length > 0){
         outer.classList.add(...question.cssClasses);
       }
@@ -190,9 +190,22 @@ class FormBuilder{
           outer.appendChild(label);
           break;
         default:
-          console.error(`FormBuilder Error: Unable to render question ${qID} due to unrecognized question type. Allowed question types are dropdown, radioButtons, checkbox, shortText, longText, label`);
+          console.error(`Polland Error: Unable to render question ${qID} due to unrecognized question type. Allowed question types are dropdown, radioButtons, checkbox, shortText, longText, label`);
       }
       this.el.appendChild(outer);
+    }
+    if(!this.hideSubmit){
+      let submitButton = document.createElement("button");
+      submitButton.setAttribute("type", "submit");
+      submitButton.classList.add("polland-submit");
+      if(this.preset == "bootstrap"){
+        submitButton.classList.add("btn", "btn-primary");
+      }else if(this.preset == "foundation"){
+        submitButton.classList.add("button");
+      }
+      let submitText = document.createTextNode("Submit");
+      submitButton.appendChild(submitText);
+      this.el.appendChild(submitButton);
     }
     this.onload();
   }

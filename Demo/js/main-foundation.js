@@ -62,6 +62,6 @@ document.addEventListener("DOMContentLoaded", function() {
     "preset": "foundation"
   };
   
-  var form = new FormBuilder("#main", options);
+  var form = new Polland("#main", options);
 
 });

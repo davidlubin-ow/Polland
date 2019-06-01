@@ -38,4 +38,4 @@ app.use('/js', express.static('js'))
 app.use('/json', express.static('json'))
 app.use('/src', express.static('../src'))
 
-app.listen(port, () => console.log(`Form Builder Demo app listening on port ${port}`))
+app.listen(port, () => console.log(`Polland Demo app listening on port ${port}`))

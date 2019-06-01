@@ -22,7 +22,7 @@ If the server starts correctly, you will be able to access the site by opening l
 In your site's javascript, you can create a new form with a single instantiation
 
 ```
-var form = new FormBuilder(element, options)
+var form = new Polland(element, options)
 ```
 
 * element: the DOM element that the form will be appended to
@@ -74,7 +74,7 @@ When building the form, the following syntax must be used, either in the questio
 Polls are simpler than forms and are designed to only accept multiple choice questions. The benefit of using polls is that you can have them display their results after submission, so that the user can see how many people chose the same answers as them.
 
 #### Submission JSON Format
-Form submissions will be sent to the endpoint specified in the database option in the following format. Note that the form builder will not sanitize inputs, so you should take the necessary precautions on the backend.
+Form submissions will be sent to the endpoint specified in the database option in the following format. Note that the Polland will not sanitize inputs, so you should take the necessary precautions on the backend.
 
 ```
 {
