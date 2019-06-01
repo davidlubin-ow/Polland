@@ -98,7 +98,7 @@
                 multipleChoiceItem.appendChild(multipleItemName);
              }
         
-          $('#exampleFormControlSelect2').append(multipleChoiceItem);
+          $('#exampleFormControlSelect2').appendChild(multipleChoiceItem);
           
  });
 
