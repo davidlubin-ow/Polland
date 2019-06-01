@@ -18,6 +18,7 @@ mongo.connect(mongoUrl, (err, client) => {
 })
 
 app.get('/', (req,res) => {res.sendFile(path.join(__dirname, 'index.html'))})
+app.get('/generator.html', (req,res) => {res.sendFile(path.join(__dirname, 'generator.html'))})
 app.get('/foundation.html', (req,res) => {res.sendFile(path.join(__dirname, 'index-foundation.html'))})
 
 app.get('/push', (req,res) => {
