@@ -29,8 +29,14 @@ class Polland{
   }
 
   submit(answers){
-
-    this.callback();
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', this.database, true)
+    xhr.onreadystatechange = function() {
+      if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+          this.callback();
+      }
+    }
+    xhr.send(answers);
   }
 
   load(){
@@ -206,6 +212,11 @@ class Polland{
       let submitText = document.createTextNode("Submit");
       submitButton.appendChild(submitText);
       this.el.appendChild(submitButton);
+      submitButton.onclick = function(){
+        //TODO
+        //var serializedData = serialize(this.el);
+        //this.submit(serializedData);
+      }
     }
     this.onload();
   }
