@@ -8,14 +8,14 @@ const dbUpdates = require('./db.js')
 
 let db, demoCollection;
 
-mongo.connect(mongoUrl, (err, client) => {
+/*mongo.connect(mongoUrl, (err, client) => {
   if (err) {
     console.error(err)
     return
   }
   db = client.db('formdata')
   demoCollection = db.collection('demo1')
-})
+})*/
 
 app.get('/', (req,res) => {res.sendFile(path.join(__dirname, 'index.html'))})
 app.get('/generator.html', (req,res) => {res.sendFile(path.join(__dirname, 'generator.html'))})
